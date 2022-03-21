@@ -1,10 +1,4 @@
 let pagina = 1;
-/**Cuando trabajamos con paginas es de suma importancia prestar atencion donde volver a mandar a llamar una funcion,
- * por ejemplo para este caso, "botonesPaginador()". Si esta funcion no estaria siendo llamada nuevamente dentro de
- * las funciones "paginaSiguiente()" y "paginaAnterior()" nos encontrariamos con un problemas con los botones,
- * ya que es primordial que ante cualquier cambio de pagina los botones de paginacion revisen en qué pagina se encuentran.
- * 
- */
 
 const cita = {
     nombre: '',
@@ -13,9 +7,6 @@ const cita = {
     servicios: []
 }
 
-/**Creamos un objeto con la intencion de almacenar aquí todos los datos ingresados por el usuario 
- * para la cita que le corresponde.
- */
 
 document.addEventListener('DOMContentLoaded', function() {
     iniciarApp();
@@ -126,7 +117,7 @@ async function mostrarServicios() { //---- Genera HTML / DOM scripting
             servicioDiv.dataset.idServicio = id;
 
             //-- Selecciona un servicio para la cita
-            servicioDiv.onclick = seleccionarServicio  //--------Se le conoce como un eventhandler, difiere del eventListener en que el segundo se lo aplica solo en contenido exitente
+            servicioDiv.onclick = seleccionarServicio  //--------Eventhandler
 
 
             //-- Agregar nombre y precio al div
@@ -158,7 +149,6 @@ function seleccionarServicio(e) { // ------ Selecciona los servicios a comprar y
     
     } else {
         // console.log('Click en el DIV')
-
         elemento = e.target;
       
     } //-------de esta manera nos aseguramos de que sea donde sea que demos click siempre se esta seleccionando el DIV
@@ -439,7 +429,7 @@ function horaCita() {
     const inputHora = document.querySelector('#hora');
     inputHora.addEventListener('input', e => {
         const horaCita = e.target.value;
-        const hora = horaCita.split(':') // ---> .split(':') el metodo split se utiliza para dividir los strings en el valor que se le da de argumento, en este caso serian ':'
+        const hora = horaCita.split(':')
         
         if (hora[0] < 10 || hora[0] > 18) {
             mostarAlerta('Hora no válida', 'error')
